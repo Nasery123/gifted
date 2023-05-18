@@ -29,7 +29,7 @@ class GiftsService{
    }
 
    async openGift(id){
-      const gift = AppState.gifts.find(g => g.id == g.id)
+      const gift = AppState.gifts.find(g => g.id == id)
       gift.opened = !gift.opened
       const res = await api.put('/api/gifts' + id, gift)
       console.log("Did it work?", res.data)
