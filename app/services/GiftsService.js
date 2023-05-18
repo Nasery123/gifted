@@ -15,6 +15,7 @@ class GiftsService{
       console.log('The appstateeee gift array', AppState.gifts)
    }
 
+   
    async createGift(formData){
       const res = await api.post('api/gifts', formData)
       console.log('created gift',res)
@@ -28,7 +29,10 @@ class GiftsService{
    }
 
    async openGift(id){
-      const res = await api.put()
+      const gift = AppState.gifts.find(g => g.id == g.id)
+      gift.opened = !gift.opened
+      const res = await api.put('/api/gifts' + id, gift)
+      console.log("Did it work?", res.data)
    }
 }
 

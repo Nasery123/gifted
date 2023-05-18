@@ -30,6 +30,13 @@ export class GiftsController{
       AppState.on('gifts', _drawGifts)
    }
 
+   async openGift(id){
+      try {
+         await giftsService.openGift(id)
+      } catch (e){
+         Pop.error(e)
+      }
+   }
    async getGifts(){
       try {
          await giftsService.getGifts()
